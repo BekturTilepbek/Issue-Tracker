@@ -1,0 +1,56 @@
+[
+{
+  "model": "webapp.task",
+  "pk": 1,
+  "fields": {
+    "description": "Посмотреть урок",
+    "status": "new",
+    "complete_date": "2024-06-27"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 2,
+  "fields": {
+    "description": "Начать бегать",
+    "status": "new",
+    "complete_date": "2024-06-30"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 3,
+  "fields": {
+    "description": "Поставить чайник",
+    "status": "new",
+    "complete_date": "2024-06-28"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 4,
+  "fields": {
+    "description": "Купить одежду",
+    "status": "in_progress",
+    "complete_date": "2024-07-07"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 5,
+  "fields": {
+    "description": "Открыть депозит",
+    "status": "done",
+    "complete_date": "2024-07-06"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 9,
+  "fields": {
+    "description": "Разбогатеть",
+    "status": "in_progress",
+    "complete_date": null
+  }
+}
+]
