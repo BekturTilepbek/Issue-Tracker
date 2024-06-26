@@ -13,9 +13,8 @@ def new_task(request):
     if request.method == 'GET':
         return render(request, 'new_task.html', context={'choices': status_choices})
     else:
-        description = request.POST.get('description')
-        status = request.POST.get('status')
-        complete_date = request.POST.get('complete_date')
-        print(description, status, complete_date)
-        Task.objects.create(description=description, status=status, complete_date=complete_date)
+        Task.objects.create(
+            description=request.POST.get('description'),
+            status=request.POST.get('status'),
+            complete_date=request.POST.get('complete_date') if request.POST.get('complete_date') else None)
         return HttpResponseRedirect('/')

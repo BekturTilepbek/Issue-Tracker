@@ -20,7 +20,10 @@
                             <h6 class="card-subtitle mb-2 text-body-secondary">{{ choice.1 }}</h6>
                         {% endif %}
                     {% endfor %}
-                    <p class="card-text">{{ task.complete_date }}</p>
+
+                    {% if task.complete_date %}
+                        <p class="card-text">{{ task.complete_date }}</p>
+                    {% endif %}
                 </div>
             </div>
         {% endfor %}
