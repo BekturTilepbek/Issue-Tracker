@@ -15,6 +15,7 @@ def new_task(request):
     else:
         Task.objects.create(
             description=request.POST.get('description'),
+            detailed_description=request.POST.get('detailed_description') if request.POST.get('detailed_description') else "",
             status=request.POST.get('status'),
             complete_date=request.POST.get('complete_date') if request.POST.get('complete_date') else None)
         return HttpResponseRedirect('/')

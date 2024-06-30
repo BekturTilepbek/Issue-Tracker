@@ -16,6 +16,10 @@
                 <input type="text" class="form-control" id="description" name="description" required>
             </div>
             <div class="mb-3">
+                <label for="detailed_description" class="form-label">Подробное описание</label>
+                <textarea class="form-control" id="detailed_description" name="detailed_description"></textarea>
+            </div>
+            <div class="mb-3">
                 <select class="form-select" aria-label="Default select example" name="status" required>
                     {% for choice in choices %}
                         {% if choice.0 == "new" %}
