@@ -24,6 +24,8 @@
                     {% if task.complete_date %}
                         <p class="card-text">{{ task.complete_date }}</p>
                     {% endif %}
+
+                    <a href="task/{{ task.id }}/">Подробнее</a>
                 </div>
             </div>
         {% endfor %}

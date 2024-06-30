@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card mt-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ task.description }}</h5>
+                
+                <p>{{ task.detailed_description }}</p>
+                {% for choice in choices %}
+                    {% if choice.0 == task.status %}
+                        <h6 class="card-subtitle mb-2 text-body-secondary">{{ choice.1 }}</h6>
+                    {% endif %}
+                {% endfor %}
+
+                {% if task.complete_date %}
+                    <p class="card-text">{{ task.complete_date }}</p>
+                {% endif %}
+
+                <a href="/">На главную</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
