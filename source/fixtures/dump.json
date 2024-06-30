@@ -88,5 +88,15 @@
     "status": "new",
     "complete_date": "2024-07-01"
   }
+},
+{
+  "model": "webapp.task",
+  "pk": 13,
+  "fields": {
+    "description": "Попить сок",
+    "detailed_description": "Попить сок ",
+    "status": "new",
+    "complete_date": null
+  }
 }
 ]
