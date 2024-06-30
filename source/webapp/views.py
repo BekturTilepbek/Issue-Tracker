@@ -1,4 +1,3 @@
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 
 from webapp.models import Task, status_choices
@@ -18,9 +17,9 @@ def new_task(request):
             detailed_description=request.POST.get('detailed_description') if request.POST.get('detailed_description') else "",
             status=request.POST.get('status'),
             complete_date=request.POST.get('complete_date') if request.POST.get('complete_date') else None)
-        return HttpResponseRedirect('/')
+        return redirect("tasks")
 
 
-def detail_task(request, *args, pk):
+def detail_task(request, pk):
     task = get_object_or_404(Task, pk=pk)
     return render(request, 'detail_task.html', context={'task': task, 'choices': status_choices})
