@@ -19,18 +19,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     {% block links %}
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'new_task' %}">Добавить задачу</a>
+                    	<li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'new_task' %}">Создать задачу</a>
                         </li>
                     {% endblock %}
                 </ul>
             </div>
         </div>
     </nav>
-    
+
     <div class="container">
         {% block content %}
-    	
+    
         {% endblock %}
     </div>
 

@@ -2,40 +2,10 @@
 {% block links %}
 	
 {% endblock %}
+
 {% block content %}
-{#    <div class="container">#}
-{#        <h3 class="mb-3">Добавьте задачу</h3>#}
-{##}
-{#        <form action="{% url 'new_task' %}" method="POST">#}
-{#            {% csrf_token %}#}
-{#            <div class="mb-3">#}
-{#                <label for="description" class="form-label">Описание</label>#}
-{#                <input type="text" class="form-control" id="description" name="description" required>#}
-{#            </div>#}
-{#            <div class="mb-3">#}
-{#                <label for="detailed_description" class="form-label">Подробное описание</label>#}
-{#                <textarea class="form-control" id="detailed_description" name="detailed_description"></textarea>#}
-{#            </div>#}
-{#            <div class="mb-3">#}
-{#                <select class="form-select" aria-label="Default select example" name="status" required>#}
-{#                    {% for choice in choices %}#}
-{#                        {% if choice.0 == "new" %}#}
-{#                            <option value="{{ choice.0 }}" selected>{{ choice.1 }}</option>#}
-{#                        {% else %}#}
-{#                            <option value="{{ choice.0 }}">{{ choice.1 }}</option>#}
-{#                        {% endif %}#}
-{#                    {% endfor %}#}
-{#                </select>#}
-{#            </div>#}
-{#            <div class="mb-3">#}
-{#                <label for="complete_date" class="form-label">Дата выполнения</label>#}
-{#                <input type="date" class="form-control" id="complete_date" name="complete_date">#}
-{#            </div>#}
-{##}
-{#            <button type="submit" class="btn btn-primary">Submit</button>#}
-{#        </form>#}
-{#    </div>#}
-<form action="{% url 'new_task' %}" method="POST">
-    {% include 'partial/task_form.html' with button_text='Создать' %}
-</form>
+    <h3 class="mb-3">Создать задачу</h3>
+    <form action="" method="POST">
+        {% include 'partial/task_form.html' with button_text='Создать' %}
+    </form>
 {% endblock %}

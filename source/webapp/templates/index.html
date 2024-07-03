@@ -17,7 +17,10 @@
                         <p class="card-text">{{ task.complete_date }}</p>
                     {% endif %}
 
-                    <a href="{% url 'detail_task' task.pk %}">Подробнее</a>
+                    <a href="{% url 'detail_task' task.pk %}">Подробнее</a><br>
+                    <a href="{% url 'update_task' task.pk %}">Изменить</a><br>
+                    <a href="{% url 'delete_task' task.pk %}">Удалить</a>
+                
                 </div>
             </div>
         {% endfor %}

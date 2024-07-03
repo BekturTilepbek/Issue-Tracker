@@ -1,23 +1,19 @@
 {% extends 'base.html' %}
+
 {% block content %}
-    <div class="container">
-        <div class="card mt-3" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{ task.description }}</h5>
-                
-                <p>{{ task.detailed_description }}</p>
-                {% for choice in choices %}
-                    {% if choice.0 == task.status %}
-                        <h6 class="card-subtitle mb-2 text-body-secondary">{{ choice.1 }}</h6>
-                    {% endif %}
-                {% endfor %}
+    <h3>{{ task.description }}</h3>
+    {% for choice in choices %}
+        {% if choice.0 == task.status %}
+            <h5 class="card-subtitle mb-2 text-body-secondary">{{ choice.1 }}</h5>
+        {% endif %}
+    {% endfor %}
 
-                {% if task.complete_date %}
-                    <p class="card-text">{{ task.complete_date }}</p>
-                {% endif %}
+    <p>{{ task.detailed_description }}</p>
 
-                <a href="{% url 'tasks' %}">На главную</a>
-            </div>
-        </div>
-    </div>
+    {% if task.complete_date %}
+        <p class="card-text">Дата выполнения: {{ task.complete_date }}</p>
+    {% endif %}
+    
+    <a href="{% url 'update_task' task.pk %}" class="btn btn-primary">Изменить</a>
+    <a href="{% url 'delete_task' task.pk %}" class="btn btn-danger">Удалить</a>
 {% endblock %}

@@ -98,5 +98,15 @@
     "status": "new",
     "complete_date": null
   }
+},
+{
+  "model": "webapp.task",
+  "pk": 30,
+  "fields": {
+    "description": "Пойти на пробежку",
+    "detailed_description": "Пойти на пробежку, пробежать 1000 км",
+    "status": "new",
+    "complete_date": "2028-11-23"
+  }
 }
 ]
