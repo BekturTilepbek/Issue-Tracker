@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
 from webapp.forms import TaskForm
-from webapp.models import Task, status_choices
+from webapp.models import Task
+
+status_choices = []
 
 
 def index(request):

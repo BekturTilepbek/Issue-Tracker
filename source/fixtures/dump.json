@@ -5,7 +5,8 @@
   "fields": {
     "description": "Посмотреть урок",
     "detailed_description": "",
-    "status": "new",
+    "status": 1,
+    "type": 1,
     "complete_date": "2024-06-27"
   }
 },
@@ -15,7 +16,8 @@
   "fields": {
     "description": "Начать бегать",
     "detailed_description": "",
-    "status": "new",
+    "status": 2,
+    "type": 2,
     "complete_date": "2024-06-30"
   }
 },
@@ -25,7 +27,8 @@
   "fields": {
     "description": "Поставить чайник",
     "detailed_description": "",
-    "status": "new",
+    "status": 3,
+    "type": 3,
     "complete_date": "2024-06-28"
   }
 },
@@ -35,7 +38,8 @@
   "fields": {
     "description": "Купить одежду",
     "detailed_description": "",
-    "status": "in_progress",
+    "status": 1,
+    "type": 1,
     "complete_date": "2024-07-07"
   }
 },
@@ -45,7 +49,8 @@
   "fields": {
     "description": "Открыть депозит",
     "detailed_description": "",
-    "status": "done",
+    "status": 2,
+    "type": 2,
     "complete_date": "2024-07-06"
   }
 },
@@ -55,7 +60,8 @@
   "fields": {
     "description": "Разбогатеть",
     "detailed_description": "",
-    "status": "in_progress",
+    "status": 3,
+    "type": 3,
     "complete_date": null
   }
 },
@@ -65,7 +71,8 @@
   "fields": {
     "description": "Купить продукты",
     "detailed_description": "Купить банан, сок, мясо, рыбу, колбаса и т.д.",
-    "status": "new",
+    "status": 1,
+    "type": 1,
     "complete_date": null
   }
 },
@@ -75,7 +82,8 @@
   "fields": {
     "description": "Собеседование",
     "detailed_description": "Важное собеседование",
-    "status": "new",
+    "status": 2,
+    "type": 2,
     "complete_date": "2024-07-05"
   }
 },
@@ -85,7 +93,8 @@
   "fields": {
     "description": "Поспать",
     "detailed_description": "",
-    "status": "new",
+    "status": 3,
+    "type": 3,
     "complete_date": "2024-07-01"
   }
 },
@@ -94,8 +103,9 @@
   "pk": 13,
   "fields": {
     "description": "Попить сок",
-    "detailed_description": "Попить сок ",
-    "status": "new",
+    "detailed_description": "Попить сок",
+    "status": 1,
+    "type": 1,
     "complete_date": null
   }
 },
@@ -105,8 +115,117 @@
   "fields": {
     "description": "Пойти на пробежку",
     "detailed_description": "Пойти на пробежку, пробежать 1000 км",
-    "status": "new",
+    "status": 2,
+    "type": 2,
     "complete_date": "2028-11-23"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 31,
+  "fields": {
+    "description": "1",
+    "detailed_description": "",
+    "status": 1,
+    "type": 1,
+    "complete_date": "2024-07-12"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 32,
+  "fields": {
+    "description": "2",
+    "detailed_description": "",
+    "status": 2,
+    "type": 2,
+    "complete_date": null
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 33,
+  "fields": {
+    "description": "3",
+    "detailed_description": "",
+    "status": 3,
+    "type": 3,
+    "complete_date": null
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 34,
+  "fields": {
+    "description": "4",
+    "detailed_description": "",
+    "status": 3,
+    "type": 1,
+    "complete_date": null
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 35,
+  "fields": {
+    "description": "5",
+    "detailed_description": "",
+    "status": 2,
+    "type": 3,
+    "complete_date": null
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 36,
+  "fields": {
+    "description": "6",
+    "detailed_description": "",
+    "status": 1,
+    "type": 2,
+    "complete_date": null
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 1,
+  "fields": {
+    "name": "Task"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 2,
+  "fields": {
+    "name": "Bug"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 3,
+  "fields": {
+    "name": "Enhancement"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 1,
+  "fields": {
+    "name": "New"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 2,
+  "fields": {
+    "name": "In Progress"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 3,
+  "fields": {
+    "name": "Done"
   }
 }
 ]

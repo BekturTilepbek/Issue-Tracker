@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from webapp.models import Task
+from webapp.models import Task, Type, Status
 
 
 class TaskAdmin(admin.ModelAdmin):
@@ -8,7 +8,21 @@ class TaskAdmin(admin.ModelAdmin):
     list_display_links = ['id', 'description']
     list_filter = ['status']
     search_fields = ['description', 'status']
-    fields = ['description', 'detailed_description', 'status', 'complete_date']
+    fields = ['description', 'detailed_description', 'status', 'type', 'complete_date']
+
+
+class TypeAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name']
+    list_display_links = ['id', 'name']
+    fields = ['name']
+
+
+class StatusAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name']
+    list_display_links = ['id', 'name']
+    fields = ['name']
 
 
 admin.site.register(Task, TaskAdmin)
+admin.site.register(Type, TypeAdmin)
+admin.site.register(Status, StatusAdmin)
