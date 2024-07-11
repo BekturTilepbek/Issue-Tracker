@@ -78,17 +78,6 @@
 },
 {
   "model": "webapp.task",
-  "pk": 11,
-  "fields": {
-    "description": "Собеседование",
-    "detailed_description": "Важное собеседование",
-    "status": 2,
-    "type": 2,
-    "complete_date": "2024-07-05"
-  }
-},
-{
-  "model": "webapp.task",
   "pk": 12,
   "fields": {
     "description": "Поспать",
@@ -124,7 +113,7 @@
   "model": "webapp.task",
   "pk": 31,
   "fields": {
-    "description": "1",
+    "description": "Task type Task",
     "detailed_description": "",
     "status": 1,
     "type": 1,
@@ -135,7 +124,7 @@
   "model": "webapp.task",
   "pk": 32,
   "fields": {
-    "description": "2",
+    "description": "Task type Bug",
     "detailed_description": "",
     "status": 2,
     "type": 2,
@@ -146,7 +135,7 @@
   "model": "webapp.task",
   "pk": 33,
   "fields": {
-    "description": "3",
+    "description": "Task type Enhancement",
     "detailed_description": "",
     "status": 3,
     "type": 3,
@@ -157,7 +146,7 @@
   "model": "webapp.task",
   "pk": 34,
   "fields": {
-    "description": "4",
+    "description": "Task type Task 2",
     "detailed_description": "",
     "status": 3,
     "type": 1,
@@ -168,7 +157,7 @@
   "model": "webapp.task",
   "pk": 35,
   "fields": {
-    "description": "5",
+    "description": "Task type Enhancement 2",
     "detailed_description": "",
     "status": 2,
     "type": 3,
@@ -179,7 +168,7 @@
   "model": "webapp.task",
   "pk": 36,
   "fields": {
-    "description": "6",
+    "description": "Task type Bug 2",
     "detailed_description": "",
     "status": 1,
     "type": 2,

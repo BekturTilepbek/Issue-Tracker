@@ -7,12 +7,15 @@ from webapp.models import Task
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['description', 'detailed_description', 'status', 'complete_date']
+        fields = ['description', 'detailed_description', 'status', 'type', 'complete_date']
         error_messages = {
             'description': {
                 'required': 'Заполните поле'
             },
             'status': {
+                'required': 'Заполните поле'
+            },
+            'type': {
                 'required': 'Заполните поле'
             },
             'complete_date': {
@@ -23,5 +26,7 @@ class TaskForm(forms.ModelForm):
         widgets = {
             'description': widgets.Input(attrs={'class': 'form-control'}),
             'detailed_description': widgets.Textarea(attrs={'class': 'form-control', 'cols': 50, 'rows': 5}),
+            'status': widgets.Select(attrs={'class': 'form-control'}),
+            'type': widgets.Select(attrs={'class': 'form-control'}),
             'complete_date': widgets.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
         }
