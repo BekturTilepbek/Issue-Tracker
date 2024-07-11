@@ -5,7 +5,7 @@ class Task(models.Model):
     description = models.CharField(max_length=200, null=False, blank=False, verbose_name='Описание')
     detailed_description = models.TextField(null=True, blank=True, default="", verbose_name='Подробное описание')
     status = models.ForeignKey('webapp.Status', on_delete=models.PROTECT, related_name='tasks', verbose_name='Статус')
-    type = models.ForeignKey('webapp.Type', on_delete=models.PROTECT, related_name='tasks', verbose_name='Тип')
+    types = models.ManyToManyField('webapp.Type', related_name='tasks', verbose_name='Типы', db_table='tasks_types')
     complete_date = models.DateField(verbose_name='Дата выполнения', null=True, blank=True, default=None)
 
     def __str__(self):

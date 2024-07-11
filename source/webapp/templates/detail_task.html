@@ -2,18 +2,23 @@
 
 {% block content %}
     <h3>{{ task.description }}</h3>
-    {% for choice in choices %}
-        {% if choice.0 == task.status %}
-            <h5 class="card-subtitle mb-2 text-body-secondary">{{ choice.1 }}</h5>
-        {% endif %}
-    {% endfor %}
+
+    <h5 class="card-subtitle mb-2 text-body-secondary">Статус: {{ task.status.name }}</h5>
+
+    <p>Типы:
+        {% for type in task.types.all %}
+            {{ type.name }}{% if not forloop.last %}, {% endif %}
+            {% empty %}
+            Типы задачи не установлены
+        {% endfor %}</p>
+
 
     <p>{{ task.detailed_description }}</p>
 
     {% if task.complete_date %}
         <p class="card-text">Дата выполнения: {{ task.complete_date }}</p>
     {% endif %}
-    
+
     <a href="{% url 'update_task' task.pk %}" class="btn btn-primary">Изменить</a>
     <a href="{% url 'delete_task' task.pk %}" class="btn btn-danger">Удалить</a>
 {% endblock %}
