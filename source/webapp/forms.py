@@ -16,7 +16,8 @@ def description_value_validate(description):
 
 class TaskForm(forms.ModelForm):
     description = forms.CharField(max_length=200, required=True, label='Описание',
-                                  validators=[description_length_validate, description_value_validate])
+                                  validators=[description_length_validate, description_value_validate],
+                                  widget=widgets.Input(attrs={'class': 'form-control'}))
 
     class Meta:
         model = Task

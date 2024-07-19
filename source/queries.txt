@@ -1,0 +1,29 @@
+Запросы:
+
+1. Закрытые задачи за последний месяц от текущей даты (вхождение определяйте по дате последнего обновления):
+
+- Task.objects.filter(Q(status__name='Done') & Q(updated_at__gte=(timezone.now() - timedelta(days=30))))
+
+2. Задачи, имеющие один из указанных статусов И один из указанных типов (в запросе укажите 2 любых названия типа и 2 названия статуса, которые есть в вашей базе):
+
+- Task.objects.filter(Q(status__name__in=('Done', 'New')) & Q(types__name__in=('Task', 'Bug'))).distinct()
+
+3. Не закрытые задачи, в названии которых содержится слово "bug" в любом регистре или относящиеся к типу "Баг":
+
+- Task.objects.filter(Q(description__icontains='bug') | Q(types__name='Bug'))
+
+Бонусы:
+
+4. Для всех задач только следующие поля: id, название задачи, название типа и название статуса:
+
+- Task.objects.all().values('id', 'description', 'types__name', 'status__name')
+
+5. Задачи, где краткое описание совпадает с полным.
+
+- Task.objects.filter(description__exact=F('detailed_description'))
+
+6. Количество задач по каждому типу.
+
+-   types = Type.objects.annotate(tasks_count=Count('tasks'))
+    for type in types:
+    print(type.name, type.tasks_count)
