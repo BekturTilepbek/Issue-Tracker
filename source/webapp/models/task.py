@@ -16,27 +16,3 @@ class Task(models.Model):
         db_table = "tasks"
         verbose_name = "Задача"
         verbose_name_plural = "Задачи"
-
-
-class Type(models.Model):
-    name = models.CharField(max_length=30, verbose_name='Тип')
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        db_table = "types"
-        verbose_name = 'Тип'
-        verbose_name_plural = 'Типы'
-
-
-class Status(models.Model):
-    name = models.CharField(max_length=30, verbose_name='Статус')
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        db_table = "statuses"
-        verbose_name = 'Статус'
-        verbose_name_plural = 'Статусы'

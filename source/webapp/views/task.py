@@ -9,7 +9,7 @@ status_choices = []
 
 
 class TaskListView(TemplateView):
-    template_name = 'index.html'
+    template_name = 'task/index.html'
 
     def get_context_data(self, **kwargs):
         tasks = Task.objects.order_by('-pk')
@@ -21,7 +21,7 @@ class TaskListView(TemplateView):
 class CreateTaskView(View):
     def get(self, request, *args, **kwargs):
         form = TaskForm()
-        return render(request, 'new_task.html', context={'form': form})
+        return render(request, 'task/new_task.html', context={'form': form})
 
     def post(self, request, *args, **kwargs):
         form = TaskForm(data=request.POST)
@@ -29,11 +29,11 @@ class CreateTaskView(View):
             task = form.save()
             return redirect("detail_task", pk=task.pk)
 
-        return render(request, 'new_task.html', context={'form': form})
+        return render(request, 'task/new_task.html', context={'form': form})
 
 
 class ReadTaskView(TemplateView):
-    template_name = 'detail_task.html'
+    template_name = 'task/detail_task.html'
 
     def get_context_data(self, **kwargs):
         task = get_object_or_404(Task, pk=self.kwargs.get('pk'))
@@ -50,7 +50,7 @@ class UpdateTaskView(View):
 
     def get(self, request, *args, **kwargs):
         form = TaskForm(instance=self.task)
-        return render(request, 'update_task.html', context={'form': form})
+        return render(request, 'task/update_task.html', context={'form': form})
 
     def post(self, request, *args, **kwargs):
         form = TaskForm(request.POST, instance=self.task)
@@ -58,7 +58,7 @@ class UpdateTaskView(View):
             task = form.save()
             return redirect("detail_task", pk=task.pk)
         else:
-            return render(request, 'update_task.html', context={'form': form})
+            return render(request, 'task/update_task.html', context={'form': form})
 
 
 class DeleteTaskView(View):
@@ -68,7 +68,7 @@ class DeleteTaskView(View):
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
-        return render(request, 'delete_task.html', context={'task': self.task})
+        return render(request, 'task/delete_task.html', context={'task': self.task})
 
     def post(self, request, *args, **kwargs):
         self.task.delete()

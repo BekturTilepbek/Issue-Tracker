@@ -4,20 +4,7 @@ from django.forms import widgets
 from webapp.models import Task
 
 
-def description_length_validate(description):
-    if len(description) < 3:
-        raise forms.ValidationError("Минимум 3 символа!")
-
-
-def description_value_validate(description):
-    if description == 'Bektur':
-        raise forms.ValidationError("Введите другое описание!")
-
-
 class TaskForm(forms.ModelForm):
-    description = forms.CharField(max_length=200, required=True, label='Описание',
-                                  validators=[description_length_validate, description_value_validate],
-                                  widget=widgets.Input(attrs={'class': 'form-control'}))
 
     class Meta:
         model = Task
