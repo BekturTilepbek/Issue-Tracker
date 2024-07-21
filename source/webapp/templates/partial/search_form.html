@@ -1,0 +1,16 @@
+{% for error in form.non_field_errors %}
+    <p class="text-danger">{{ error }}</p>
+{% endfor %}
+
+<div class="d-flex mb-3">
+    <div class="search_bar w-25 me-3">
+        {{ form.search }}
+    </div>
+    <div class="button">
+        <button class="btn btn-outline-success" type="submit">Поиск</button>
+    </div>
+    {% for error in form.search.errors %}
+        <p class="text-danger">{{ error }}</p>
+    {% endfor %}
+</div>
+
