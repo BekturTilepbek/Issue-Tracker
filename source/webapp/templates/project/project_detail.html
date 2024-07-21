@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3 class="mb-3">Задачи проекта {{ project.name }}</h3>
+
+    <div class="cards d-flex flex-wrap justify-content-between">
+        {% for task in tasks %}
+            <div class="card mt-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ task.description }}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">{{ task.status }}</h6>
+                    <p>Типы:
+                        {% for type in task.types.all %}
+                            {{ type.name }}{% if not forloop.last %}, {% endif %}
+                            {% empty %}
+                            Типы задачи не установлены
+                        {% endfor %}</p>
+
+                    <a href="{% url 'detail_task' task.pk %}">Подробнее</a><br>
+                    <a href="{% url 'update_task' task.pk %}">Изменить</a><br>
+                    <a href="{% url 'delete_task' task.pk %}">Удалить</a>
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
