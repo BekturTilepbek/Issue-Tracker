@@ -9,6 +9,7 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
     project = models.ForeignKey('webapp.Project', on_delete=models.CASCADE, related_name='tasks', verbose_name='Проект')
+    is_deleted = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.pk}. {self.description}: {self.status}"

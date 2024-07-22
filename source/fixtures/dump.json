@@ -9,6 +9,7 @@
     "created_at": "2024-07-19T10:53:11.164Z",
     "updated_at": "2024-07-19T10:53:11.164Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1,
       2,
@@ -26,6 +27,7 @@
     "created_at": "2024-07-19T10:53:21.846Z",
     "updated_at": "2024-07-19T10:53:21.846Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       2
     ]
@@ -41,6 +43,7 @@
     "created_at": "2024-07-19T10:53:29.969Z",
     "updated_at": "2024-07-19T10:53:29.969Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1
     ]
@@ -56,6 +59,7 @@
     "created_at": "2024-07-19T10:53:38.836Z",
     "updated_at": "2024-07-19T10:53:38.836Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       3
     ]
@@ -71,6 +75,7 @@
     "created_at": "2024-07-19T10:53:46.741Z",
     "updated_at": "2024-07-19T10:53:46.741Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       2
     ]
@@ -86,6 +91,7 @@
     "created_at": "2024-07-19T10:53:53.188Z",
     "updated_at": "2024-07-19T10:53:53.188Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       2,
       3
@@ -102,6 +108,7 @@
     "created_at": "2024-07-19T10:54:07.827Z",
     "updated_at": "2024-07-19T10:54:07.827Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1,
       3
@@ -118,6 +125,7 @@
     "created_at": "2024-07-19T10:54:17.157Z",
     "updated_at": "2024-07-19T10:54:17.157Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1,
       2
@@ -134,6 +142,7 @@
     "created_at": "2024-07-19T10:54:32.274Z",
     "updated_at": "2024-07-19T10:54:32.274Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1,
       2
@@ -150,6 +159,7 @@
     "created_at": "2024-07-19T10:54:41.217Z",
     "updated_at": "2024-07-19T10:54:41.217Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1,
       2,
@@ -167,6 +177,7 @@
     "created_at": "2024-07-19T12:09:05.465Z",
     "updated_at": "2024-07-19T12:09:05.465Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1,
       2
@@ -183,6 +194,7 @@
     "created_at": "2024-07-19T12:09:18.999Z",
     "updated_at": "2024-07-19T12:09:18.999Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1,
       2,
@@ -200,6 +212,7 @@
     "created_at": "2024-07-19T12:09:26.368Z",
     "updated_at": "2024-07-19T12:09:26.368Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1
     ]
@@ -215,6 +228,7 @@
     "created_at": "2024-07-19T12:09:31.979Z",
     "updated_at": "2024-07-19T12:09:31.979Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       2
     ]
@@ -230,6 +244,7 @@
     "created_at": "2024-07-19T12:09:39.037Z",
     "updated_at": "2024-07-19T12:09:39.037Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       3
     ]
@@ -245,6 +260,7 @@
     "created_at": "2024-07-22T09:21:35.061Z",
     "updated_at": "2024-07-22T09:21:35.065Z",
     "project": 8,
+    "is_deleted": false,
     "types": [
       1
     ]
@@ -255,11 +271,28 @@
   "pk": 31,
   "fields": {
     "description": "Task22",
-    "detailed_description": "22",
+    "detailed_description": "Task22",
     "status": 1,
     "created_at": "2024-07-22T09:21:44.626Z",
     "updated_at": "2024-07-22T09:21:44.630Z",
     "project": 8,
+    "is_deleted": false,
+    "types": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 32,
+  "fields": {
+    "description": "Task23",
+    "detailed_description": "Task23",
+    "status": 1,
+    "created_at": "2024-07-22T09:34:53.047Z",
+    "updated_at": "2024-07-22T09:35:00.232Z",
+    "project": 8,
+    "is_deleted": true,
     "types": [
       1
     ]
