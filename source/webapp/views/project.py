@@ -1,8 +1,9 @@
-from django.db.models import Q
+from django.db.models import Q, ProtectedError
+from django.urls import reverse_lazy, reverse
 from django.utils.http import urlencode
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 
-from webapp.forms import SearchForm
+from webapp.forms import ProjectForm, SearchForm
 from webapp.models import Project
 
 
@@ -43,6 +44,14 @@ class ProjectListView(ListView):
         return context
 
 
+class CreateProjectView(CreateView):
+    template_name = "project/create_project.html"
+    form_class = ProjectForm
+
+    def get_success_url(self):
+        return reverse("project_detail", kwargs={"pk": self.object.pk})
+
+
 class ProjectDetailView(DetailView):
     template_name = "project/project_detail.html"
     model = Project
@@ -51,3 +60,19 @@ class ProjectDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context["tasks"] = self.object.tasks.order_by("-created_at")
         return context
+
+
+class UpdateProjectView(UpdateView):
+    template_name = "project/update_project.html"
+    form_class = ProjectForm
+    model = Project
+
+    def get_success_url(self):
+        return reverse("project_detail", kwargs={"pk": self.object.pk})
+
+
+class DeleteProjectView(DeleteView):
+    template_name = "project/delete_project.html"
+    model = Project
+    success_url = reverse_lazy("projects")
+

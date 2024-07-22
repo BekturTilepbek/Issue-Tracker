@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.views import View
-from django.views.generic import TemplateView, ListView, DetailView, UpdateView, DeleteView
+from django.views.generic import TemplateView, ListView, CreateView, DetailView, UpdateView, DeleteView
 
 from webapp.forms import TaskForm
-from webapp.models import Task
-
-status_choices = []
+from webapp.models import Task, Project
 
 
 class TaskListView(TemplateView):
@@ -18,22 +17,23 @@ class TaskListView(TemplateView):
         return context
 
 
-class CreateTaskView(View):
-    def get(self, request, *args, **kwargs):
-        form = TaskForm()
-        return render(request, 'task/new_task.html', context={'form': form})
+class CreateTaskView(CreateView):
+    template_name = "task/create_task.html"
+    form_class = TaskForm
 
-    def post(self, request, *args, **kwargs):
-        form = TaskForm(data=request.POST)
-        if form.is_valid():
-            task = form.save()
-            return redirect("detail_task", pk=task.pk)
+    def form_valid(self, form):
+        project = get_object_or_404(Project, pk=self.kwargs['pk'])
+        task = form.save(commit=False)
+        task.project = project
+        task.save()
+        return super().form_valid(form)
 
-        return render(request, 'task/new_task.html', context={'form': form})
+    def get_success_url(self):
+        return reverse('project_detail', kwargs={'pk': self.object.project.pk})
 
 
 class ReadTaskView(TemplateView):
-    template_name = 'task/detail_task.html'
+    template_name = 'task/task_detail.html'
 
     def get_context_data(self, **kwargs):
         task = get_object_or_404(Task, pk=self.kwargs.get('pk'))
