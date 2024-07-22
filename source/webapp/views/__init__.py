@@ -1,3 +1,2 @@
-from webapp.views.task import TaskListView, CreateTaskView, ReadTaskView, UpdateTaskView, DeleteTaskView
-from webapp.views.project import (ProjectListView, CreateProjectView, ProjectDetailView, UpdateProjectView,
-                                  DeleteProjectView)
+from webapp.views.task import CreateTaskView, TaskDetailView, UpdateTaskView, DeleteTaskView
+from webapp.views.project import ProjectListView, CreateProjectView, ProjectDetailView, UpdateProjectView, DeleteProjectView

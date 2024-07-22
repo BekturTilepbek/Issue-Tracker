@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% block links %}
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'create_task' task.project.pk %}">Создать задачу</a>
+    </li>
+{% endblock %}
 
 {% block content %}
     <h3>{{ task.description }}</h3>
@@ -14,7 +19,7 @@
 
 
     <p>{{ task.detailed_description }}</p>
-    
+
     <p class="card-text">Дата создания: {{ task.created_at }}</p>
     <p class="card-text">Дата изменения: {{ task.updated_at }}</p>
 

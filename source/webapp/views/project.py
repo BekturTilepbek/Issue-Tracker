@@ -1,4 +1,4 @@
-from django.db.models import Q, ProtectedError
+from django.db.models import Q
 from django.urls import reverse_lazy, reverse
 from django.utils.http import urlencode
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
