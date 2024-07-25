@@ -5,6 +5,6 @@
         {% csrf_token %}
         <h3>Вы действительно хотите удалить проект {{ project.name }}?</h3>
         <input type="submit" class="btn btn-danger" value="Да">
-        <a href="{% url 'projects' %}" class="btn btn-primary">Нет</a>
+        <a href="{% url 'webapp:projects' %}" class="btn btn-primary">Нет</a>
     </form>
 {% endblock %}
