@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block links %}
+
+{% endblock %}
+
+{% block content %}
+    <h3 class="mb-3">Добавление пользователя</h3>
+    <form action="" method="POST" class="mb-5">
+        {% csrf_token %}
+        <select name="add_user" id="" class="form-control my-3">
+            {% for user in no_added_users %}
+                <option value="{{ user.pk }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" class="btn btn-primary" value="Добавить">
+    </form>
+
+    <h3 class="mb-3">Удаление пользователя</h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <select name="remove_user" id="" class="form-control my-3">
+            <option value="" selected disabled>Выберите пользователя</option>
+            {% for user in project.users.all %}
+                <option value="{{ user.pk }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" class="btn btn-primary" value="Удалить">
+    </form>
+{% endblock %}
+

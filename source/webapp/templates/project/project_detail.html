@@ -2,12 +2,44 @@
 {% block links %}
     {% if request.user.is_authenticated %}
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'webapp:create_task' project.pk %}">Создать задачу</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'webapp:create_task' project.pk %}">Создать
+                задачу</a>
         </li>
     {% endif %}
 {% endblock %}
 {% block content %}
-    <h3 class="mb-3">Задачи проекта {{ project.name }}</h3>
+    <h3 class="mb-3">Пользователи проекта {{ project.name }}</h3>
+
+    {% if users %}
+        <table class="table mb-3">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.last_name }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Пользователи не найдены</p>
+    {% endif %}
+
+    <a href="{% url 'webapp:manage_project_users' project.pk %}">Управление пользователями проекта</a>
+
+    <h3 class="my-3">Задачи проекта {{ project.name }}</h3>
 
     <div class="cards d-flex row row-cols-1 row-cols-md-2 row-cols-lg-4">
         {% for task in tasks %}
