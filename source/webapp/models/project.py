@@ -18,3 +18,5 @@ class Project(models.Model):
         db_table = "projects"
         verbose_name = "Проект"
         verbose_name_plural = "Проекты"
+        permissions = [('add_user_in_project', 'Добавить пользователя в проект'),
+                       ('delete_user_from_project', 'Удалить пользователя из проекта')]

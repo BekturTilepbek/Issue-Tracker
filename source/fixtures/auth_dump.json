@@ -1,10 +1,112 @@
 [
 {
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Менеджер проекта",
+    "permissions": [
+      [
+        "add_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_user_in_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "change_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "delete_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "delete_user_from_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_task",
+        "webapp",
+        "task"
+      ],
+      [
+        "change_task",
+        "webapp",
+        "task"
+      ],
+      [
+        "delete_task",
+        "webapp",
+        "task"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Капитан",
+    "permissions": [
+      [
+        "add_user_in_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "delete_user_from_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "add_task",
+        "webapp",
+        "task"
+      ],
+      [
+        "change_task",
+        "webapp",
+        "task"
+      ],
+      [
+        "delete_task",
+        "webapp",
+        "task"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "Разработчик",
+    "permissions": [
+      [
+        "add_task",
+        "webapp",
+        "task"
+      ],
+      [
+        "change_task",
+        "webapp",
+        "task"
+      ]
+    ]
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$720000$L7y8BOCO0W53VNxkf3C3mY$NhIkPzg5cfqEibseAXGduC9igEn5rKOchXiujQ+cF4w=",
-    "last_login": "2024-07-25T10:51:56.137Z",
+    "last_login": "2024-07-27T13:24:59.049Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -14,6 +116,138 @@
     "is_active": true,
     "date_joined": "2024-07-25T10:39:19.602Z",
     "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$ay5xT4xw5Tj9v5taIzyyPM$OoMTJHsmdRZ/faOX/+nA0SP2zwpg+wveOlKskMaYz6o=",
+    "last_login": "2024-07-27T12:17:10.471Z",
+    "is_superuser": false,
+    "username": "user4",
+    "first_name": "user4",
+    "last_name": "",
+    "email": "user4@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-07-27T09:18:53.707Z",
+    "groups": [
+      [
+        "Менеджер проекта"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$gcpIVpAadbJ0nWWGNIUzeq$obQ7AIrGaFIHvmbrXCrkSFFC4LYLQAnZ3F3sq8XPvxA=",
+    "last_login": "2024-07-27T09:33:59.075Z",
+    "is_superuser": false,
+    "username": "user5",
+    "first_name": "user5",
+    "last_name": "",
+    "email": "user5@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-07-27T09:33:58.701Z",
+    "groups": [
+      [
+        "Капитан"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$1NhJVKBXPeCG9fDboaFF3s$WsMFEOV2l541FpeCEG37uicT2HGJB2nEgMoajGqOWh0=",
+    "last_login": "2024-07-27T11:42:42.766Z",
+    "is_superuser": false,
+    "username": "user6",
+    "first_name": "user6",
+    "last_name": "",
+    "email": "user6@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-07-27T11:42:42.481Z",
+    "groups": [
+      [
+        "Разработчик"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$OfGXLPTnAjGYXeHsYymWiU$SGYmXhtIr/35wpLuyyvjUn4WI8h5/ym7303xtOSIgXU=",
+    "last_login": "2024-07-27T13:25:26.024Z",
+    "is_superuser": false,
+    "username": "manager",
+    "first_name": "manager",
+    "last_name": "",
+    "email": "manager@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-07-27T12:12:12.487Z",
+    "groups": [
+      [
+        "Менеджер проекта"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$Yyfl2Qc4Dq8Eddnm8YRXjV$78nWIBxhaWLHvpLIO4J9AV1FTL+NWAFSWmEYjmm0nPY=",
+    "last_login": "2024-07-27T13:22:41.861Z",
+    "is_superuser": false,
+    "username": "lead",
+    "first_name": "lead",
+    "last_name": "",
+    "email": "lead@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-07-27T12:12:37.116Z",
+    "groups": [
+      [
+        "Капитан"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$uw7CRPWOCW04obcvH4V7yZ$Qkb6qkBN+DQQx1QiSnBXWx1x/KZQESRhH8P/ilo6ogY=",
+    "last_login": "2024-07-27T13:15:56.106Z",
+    "is_superuser": false,
+    "username": "dev",
+    "first_name": "dev",
+    "last_name": "",
+    "email": "dev@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-07-27T12:13:06.437Z",
+    "groups": [
+      [
+        "Разработчик"
+      ]
+    ],
     "user_permissions": []
   }
 }

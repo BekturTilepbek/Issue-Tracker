@@ -23,10 +23,12 @@
             <ul class="navbar-nav">
                 {% block links %}
                     {% if request.user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'webapp:create_project' %}">Создать
-                                проект</a>
-                        </li>
+                        {% if perms.webapp.add_project %}
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'webapp:create_project' %}">Создать
+                                    проект</a>
+                            </li>
+                        {% endif %}
                     {% endif %}
                 {% endblock %}
 

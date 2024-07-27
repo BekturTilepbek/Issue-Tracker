@@ -8,6 +8,7 @@
     <form action="" method="POST" class="mb-5">
         {% csrf_token %}
         <select name="add_user" id="" class="form-control my-3">
+            <option value="" selected disabled>Выберите пользователя</option>
             {% for user in no_added_users %}
                 <option value="{{ user.pk }}">{{ user.username }}</option>
             {% endfor %}

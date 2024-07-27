@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
@@ -50,9 +50,13 @@ class ProjectListView(ListView):
         return context
 
 
-class CreateProjectView(LoginRequiredMixin, CreateView):
+class CreateProjectView(PermissionRequiredMixin, LoginRequiredMixin, CreateView):
     template_name = "project/create_project.html"
     form_class = ProjectForm
+    permission_required = "webapp.add_project"
+
+    def has_permission(self):
+        return self.request.user.groups.filter(id=1).exists()
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -75,27 +79,39 @@ class ProjectDetailView(DetailView):
         return context
 
 
-class UpdateProjectView(LoginRequiredMixin, UpdateView):
+class UpdateProjectView(PermissionRequiredMixin, LoginRequiredMixin, UpdateView):
     template_name = "project/update_project.html"
     form_class = ProjectForm
     model = Project
+    permission_required = "webapp.change_project"
+
+    def has_permission(self):
+        return self.request.user.groups.filter(id=1).exists() and self.get_object().users.filter(id=self.request.user.id).exists()
 
     def get_success_url(self):
         return reverse("webapp:project_detail", kwargs={"pk": self.object.pk})
 
 
-class DeleteProjectView(LoginRequiredMixin, DeleteView):
+class DeleteProjectView(PermissionRequiredMixin, LoginRequiredMixin, DeleteView):
     template_name = "project/delete_project.html"
     model = Project
     success_url = reverse_lazy("webapp:projects")
+    permission_required = "webapp.delete_project"
+
+    def has_permission(self):
+        return self.request.user.groups.filter(id=1).exists() and self.get_object().users.filter(id=self.request.user.id).exists()
 
 
-class ManageProjectUserView(LoginRequiredMixin, TemplateView):
+class ManageProjectUserView(PermissionRequiredMixin, LoginRequiredMixin, TemplateView):
     template_name = 'project/manage_project_users.html'
+    permission_required = ('webapp.add_user_in_project', 'webapp.delete_user_from_project')
 
     def dispatch(self, request, *args, **kwargs):
         self.project = get_object_or_404(Project, pk=self.kwargs['pk'])
         return super().dispatch(request, *args, **kwargs)
+
+    def has_permission(self):
+        return self.request.user.groups.filter(Q(id=1) | Q(id=2)).exists() and self.project.users.filter(id=self.request.user.id).exists()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -113,5 +129,3 @@ class ManageProjectUserView(LoginRequiredMixin, TemplateView):
             self.project.users.remove(cleaned_data['remove_user'])
             self.project.save()
         return redirect('webapp:project_detail', pk=self.project.pk)
-
-
